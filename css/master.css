@@ -1,0 +1,131 @@
+html, body{
+    font-family: Georgia, serif;
+    font-size: 4vmin;
+    line-height: 5vmin;
+    color: rgba(255, 255, 255,.6); 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #552b17b6;    
+
+}
+
+a{
+    color: #c05e30b6;
+}
+#lampada{
+    position: fixed;
+    left: 50%;
+    top: 0;
+}
+#fio{
+    position: relative;
+    background-color:white;
+    width: 2px;
+    height: 150px;
+    left: 50%;
+    margin-left: -1px;
+    z-index: 1;
+    -webkit-transform-origin: 0% 0%;
+    -webkit-animation: oscillaFio .9s ease-in-out 0s infinite alternate;
+    animation: oscillaFio .9s ease-in-out 0s infinite alternate;
+}
+#fio:after{
+    content: "";
+    left: -5px;
+    top: 100%;
+    position: absolute;
+    border-bottom: 15px solid white;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    height: 0;
+    width: 4px;
+}
+#lampadina{
+    position: relative;
+}
+input[value = "off"]:checked ~
+#fio{
+    -webkit-box-shadow: -80px -10px 7px 0 rgba(0,0,0,1);
+}
+input[value = "off"]:checked ~
+#fio:after{
+    -webkit-box-shadow: -80px -10px 10px -2px rgba(0,0,0,1);
+}
+
+input{
+    position: absolute;
+    width: 90px;
+    height: 70px;
+    top: 150px;
+    margin-left: -45px;
+    opacity:0;
+    z-index: 1;
+    cursor: pointer;
+
+}
+input[value = "on"]{
+    top: 150px;
+}
+input[value = off]{
+    top: -100px
+}
+input[value="on"]:checked{
+    top: -100px;
+}
+input[value="on"]:checked + input[value=off]{
+    top:150px;
+}
+label{
+    width: 51px;
+    height: 51px;
+    top: 164px;
+    position: absolute;
+    left: 0;
+    margin-left: -24px;
+    -webkit-border-radius:100%;
+    -webkit-animation: oscillaLampadina .9s ease-in-out 0s infinite alternate;
+}
+
+/* Luz da lampada */
+
+input[value=off]:checked ~
+label{
+    background: rgba(255, 255, 255, 0.03);
+    -webkit-box-shadow: inset 0px 1px 5px rgba(255,255,255,.1), inset 0px 2px 20px rgba(255,255,255,.07), -80 -15 15 -5px rgba(0,0,0,0.1);
+}
+input[value="on"]:checked ~
+label{
+    background: rgba(255,255,255,1);
+    -webkit-box-shadow: inset 0px 0px 10px rgba(255,255,255,0.8), 0px 0px 30px rgba(255,255,255,.8), 0px 0px 50px rgba(255,255,255,0.6), 0px 0px 70px rgba(255,255,255,0.6), -80px -15px 120px 0px rgba(255,255,255,0.4);
+}
+input[value ="off"]:checked ~
+label:after{
+    content:" ";
+    width: 15px;
+    height: 15px;
+    top: 0;
+    position: absolute;
+    left: 0;
+    margin-left: 15px;
+    -webkit-border-radius:100%; 
+    border: 2px solid rgba(255, 255, 255, 0.03);
+}
+
+@-webkit-keyframes oscillaFio{
+    from{
+        -webkit-transform: rotate(5deg);
+    }to{
+        -webkit-transform: rotate(-5deg);
+    }
+
+}
+@-webkit-keyframes oscillaLampadina{
+    from{
+        -webkit-transform: rotate(3deg) translate(-16.4px,-1px);
+
+    }to{
+        -webkit-transform: rotate(-3deg) translate(16.4px,-1px)
+    }
+}
+
