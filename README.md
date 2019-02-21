@@ -1,5 +1,5 @@
 # lampada
-uma lampada para testar a funcionalidade do Netlify de siste estaticos atraves do Git. 
+uma lampada para testar a funcionalidade do Netlify de site estaticos atraves do Git. 
 
 
 Link funcional do Netlify
